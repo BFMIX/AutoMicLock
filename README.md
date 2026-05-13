@@ -71,9 +71,13 @@ Auto MicLock runs silently in your macOS Menu Bar. You can set it to "Launch at 
 **Is this safe and open source?**
 Yes. Auto MicLock uses native macOS CoreAudio APIs. It does not collect data, has no network telemetry (other than checking for updates), and the entire source code is available here.
 
-## Development
+## How it works (Under the hood)
 
-The project uses [XcodeGen](https://github.com/yonaskolb/XcodeGen) to manage the Xcode project without merge conflicts.
+Unlike hacky scripts that run infinite loops in the background, Auto MicLock is a **100% native macOS application** written in pure Swift.
+
+- **CoreAudio Event-Driven**: It uses native `AudioObjectAddPropertyListenerBlock` to listen for hardware changes. It only wakes up when macOS tries to change the default input, meaning **0% CPU usage** on standby.
+- **No External Dependencies**: It does not rely on Automator, SwitchAudioSource, or bash loops. It directly sets the `kAudioDeviceTransportTypeBuiltIn` device via low-level system APIs.
+- **SMAppService**: Uses the modern macOS background service API to launch silently at login without creating messy `LaunchAgents` or plist files.
 
 ```bash
 # Generate the Xcode project

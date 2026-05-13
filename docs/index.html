@@ -52,6 +52,16 @@
 
     <main>
         <section class="section problem-solution">
+            <div class="container text-center">
+                <!-- GIF Placeholder -->
+                <div class="demo-gif-container" style="margin-bottom: 60px;">
+                    <div class="gif-placeholder" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); border-radius: 16px; width: 100%; max-width: 800px; aspect-ratio: 16/9; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--text-secondary);">
+                        <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px; opacity: 0.5;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                        <p>Demo Video Coming Soon<br><small>Watch Auto MicLock instantly intercept macOS switching attempts.</small></p>
+                    </div>
+                </div>
+            </div>
+
             <div class="container split-layout">
                 <div class="card glass">
                     <div class="card-icon red">
@@ -66,6 +76,28 @@
                     </div>
                     <h2>The Solution</h2>
                     <p>Auto MicLock silently monitors your system's audio. If macOS attempts to switch the input to your Bluetooth headset, the app instantly forces the input back to your Mac's superior built-in microphone. By forcing macOS to ignore the headset's microphone, your Bluetooth headphones remain in high-fidelity mode (AAC/SBC).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section technical">
+            <div class="container text-center">
+                <h2>How it works (under the hood)</h2>
+                <p class="section-desc" style="max-width: 800px; margin: 0 auto 48px;">Unlike hacky scripts that run infinite loops in the background, Auto MicLock is a <strong>100% native macOS Menu Bar application</strong> written in pure Swift.</p>
+                
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="grid-item" style="text-align: left;">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 8px;">CoreAudio Event-Driven</h3>
+                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It uses native <code>AudioObjectAddPropertyListenerBlock</code> to listen for hardware changes. It only wakes up when macOS tries to change the default input, meaning <strong>0% CPU usage</strong> on standby.</p>
+                    </div>
+                    <div class="grid-item" style="text-align: left;">
+                        <h3 style="color: var(--accent-purple); margin-bottom: 8px;">No External Dependencies</h3>
+                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It does not rely on Automator, SwitchAudioSource, or bash loops. It directly sets the <code>kAudioDeviceTransportTypeBuiltIn</code> device via low-level system APIs.</p>
+                    </div>
+                    <div class="grid-item" style="text-align: left;">
+                        <h3 style="color: #4af626; margin-bottom: 8px;">SMAppService</h3>
+                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It uses the modern macOS 13+ background service API to launch silently at login without creating messy LaunchAgents or plist files.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -96,6 +128,10 @@
                     <div class="faq-item">
                         <h3>Why does macOS switch microphones automatically?</h3>
                         <p>Apple designed macOS to default to the newest connected audio device. While convenient for speakers, it’s highly problematic for Bluetooth headphones because activating their microphone degrades the output audio quality drastically due to Bluetooth profile limitations.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why doesn't Apple just fix this?</h3>
+                        <p>It's a historical frustration. Apple assumes that if you connect a headset, you want to use its microphone. They haven't provided a user-facing toggle to say "Always prefer my Mac's built-in microphone". Auto MicLock exists to provide that missing toggle.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Does this improve audio quality?</h3>
