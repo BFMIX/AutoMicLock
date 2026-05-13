@@ -1,0 +1,35 @@
+name: AutoMicLock
+options:
+  bundleIdPrefix: com.automiclock
+  deploymentTarget:
+    macOS: "13.0"
+
+packages:
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.6.0
+
+targets:
+  AutoMicLock:
+    type: application
+    platform: macOS
+    sources: Sources
+    info:
+      path: Info.plist
+      properties:
+        LSUIElement: true
+        SUFeedURL: "https://yourwebsite.com/appcast.xml"
+        SUPublicEDKey: "YOUR_EDDSA_PUBLIC_KEY"
+    entitlements:
+      path: AutoMicLock.entitlements
+      properties:
+        com.apple.security.network.client: true
+    dependencies:
+      - package: Sparkle
+        product: Sparkle
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.automiclock.AutoMicLock
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Automatic

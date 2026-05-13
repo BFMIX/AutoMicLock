@@ -1,0 +1,19 @@
+# Xcode
+build/
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+.build/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# AI Metadata
+GEMINI.md
+MEMORY.md
+.gemini/
