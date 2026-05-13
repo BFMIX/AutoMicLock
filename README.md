@@ -2,9 +2,13 @@
 
 **Lock your internal microphone. Unlock HD audio quality.**
 
-Auto MicLock is a lightweight macOS Menu Bar utility that forces your system to always use the internal microphone, even when Bluetooth headphones (AirPods, Bose, Sony, etc.) are connected. 
+**The Problem:** macOS automatically switches your microphone input to Bluetooth devices when they connect. This forces your headphones (AirPods, Bose, Sony, Beats) into a low-bandwidth "Hands-Free" profile, instantly ruining your audio quality and making everything sound muffled like a bad phone call.
 
-By preventing macOS from switching the input source to your headset, it stops your headphones from entering the low-quality "Hands-Free" mode, ensuring you maintain crystal-clear HD audio for your ears while using the Mac's superior internal mic for your voice.
+**The Solution:** Auto MicLock keeps your Mac’s built-in microphone permanently selected. It is a lightweight macOS Menu Bar utility that prevents unwanted automatic input switching. 
+
+By forcing macOS to ignore the headset's microphone, your Bluetooth headphones remain in high-fidelity mode (AAC/SBC), ensuring you maintain crystal-clear HD audio for your ears while using the Mac's superior internal mic for your voice. Perfect for Zoom, Teams, Google Meet, Discord, or listening to music while gaming.
+
+*(Keywords: macOS auto switch microphone to bluetooth, stop mac from changing audio input, prevent AirPods from changing mic, fix bad audio quality bluetooth mac, force internal microphone macos, disable hands free profile mac, lock audio input mac, macos audio input keeps changing, bluetooth sound quality drops when mic is used).*
 
 ## Features
 
