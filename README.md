@@ -1,4 +1,4 @@
-# Auto MicLock: Force macOS to Use Built-in Microphone 🔒🎙️
+# Auto MicLock : (Force macOS to Use Built-in Microphone 🔒🎙️)
 
 **[🌐 Visit the Official Website](https://bfmix.github.io/AutoMicLock/)**
 
