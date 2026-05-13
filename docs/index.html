@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto MicLock: Force macOS to use built-in microphone</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A lightweight macOS utility that prevents macOS from automatically switching the microphone input to Bluetooth headphones. Improve audio quality in calls on Mac.">
+    <meta name="keywords" content="mac microphone keeps switching, stop AirPods microphone switching Mac, force Mac built-in microphone, improve Bluetooth audio quality macOS, macOS audio input switching fix">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Auto MicLock for macOS">
+    <meta property="og:description" content="Fix automatic microphone switching on Mac and improve your Bluetooth audio quality during calls.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="icon.png">
+    
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="icon.png" alt="Auto MicLock Icon" class="app-icon">
+                <h1>Lock your internal microphone.<br><span>Unlock HD audio quality.</span></h1>
+                <p class="subtitle">Auto MicLock is a lightweight macOS utility that prevents your Mac from automatically switching the microphone input to Bluetooth headphones, keeping the Mac’s built-in microphone permanently selected.</p>
+                
+                <div class="cta-group">
+                    <a href="https://github.com/BFMIX/AutoMicLock/releases/latest" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download for macOS
+                    </a>
+                    <a href="https://github.com/BFMIX/AutoMicLock" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="badges">
+                    <span class="badge">Made for macOS 13+</span>
+                    <span class="badge">Open Source</span>
+                    <span class="badge">Apple Silicon Native</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section problem-solution">
+            <div class="container split-layout">
+                <div class="card glass">
+                    <div class="card-icon red">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    </div>
+                    <h2>The Problem</h2>
+                    <p>macOS automatically switches your microphone input to Bluetooth devices when they connect. Because of Bluetooth bandwidth limits, activating the headset's microphone forces the connection into a low-quality "Hands-Free Profile". This instantly ruins your audio quality, making everything sound muffled and distorted like a bad phone call.</p>
+                </div>
+                <div class="card glass">
+                    <div class="card-icon green">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10.08 10.08 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h2>The Solution</h2>
+                    <p>Auto MicLock silently monitors your system's audio. If macOS attempts to switch the input to your Bluetooth headset, the app instantly forces the input back to your Mac's superior built-in microphone. By forcing macOS to ignore the headset's microphone, your Bluetooth headphones remain in high-fidelity mode (AAC/SBC).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section integrations">
+            <div class="container text-center">
+                <h2>Better audio quality everywhere.</h2>
+                <p class="section-desc">Maintain stable, high-fidelity sound during calls and recordings. Stop sounding like you're in a tunnel.</p>
+                
+                <div class="grid use-cases">
+                    <div class="grid-item"><h3>Zoom</h3></div>
+                    <div class="grid-item"><h3>Google Meet</h3></div>
+                    <div class="grid-item"><h3>Microsoft Teams</h3></div>
+                    <div class="grid-item"><h3>Discord</h3></div>
+                    <div class="grid-item"><h3>OBS Studio</h3></div>
+                </div>
+
+                <h3 class="margin-top">Universally Compatible</h3>
+                <p>Works automatically with AirPods, Sony WH-1000XM, Bose QuietComfort, Beats, and any generic Bluetooth headset that triggers the macOS auto-switch behavior.</p>
+            </div>
+        </section>
+
+        <section class="section faq">
+            <div class="container">
+                <h2 class="text-center">Frequently Asked Questions</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Why does macOS switch microphones automatically?</h3>
+                        <p>Apple designed macOS to default to the newest connected audio device. While convenient for speakers, it’s highly problematic for Bluetooth headphones because activating their microphone degrades the output audio quality drastically due to Bluetooth profile limitations.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does this improve audio quality?</h3>
+                        <p>Yes. By preventing your Mac from using the Bluetooth microphone, your headphones stay in the high-bandwidth A2DP profile (stereo, high bitrate). You will hear your colleagues and music in full HD, while they hear you clearly through your Mac's internal microphone.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do I need to keep the app open?</h3>
+                        <p>Auto MicLock sits quietly in your macOS Menu Bar. You can enable "Launch at Login" from the menu so it runs automatically in the background every time you start your Mac. You never have to think about it again.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is it free and open source?</h3>
+                        <p>Yes, 100% free and open source. The project is built with native Swift and CoreAudio APIs, meaning zero telemetry, no data collection, and absolutely no impact on your Mac's performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section terminal-install">
+            <div class="container text-center">
+                <h2>For Power Users</h2>
+                <p>Install instantly via terminal using our one-line installer.</p>
+                <div class="code-block">
+                    <code>curl -fsSL https://raw.githubusercontent.com/BFMIX/AutoMicLock/main/install.sh | bash</code>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <img src="icon.png" alt="Icon" class="footer-icon">
+                    <span>Auto MicLock</span>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/BFMIX/AutoMicLock">GitHub Repository</a>
+                    <a href="https://github.com/BFMIX/AutoMicLock/blob/main/LICENSE">MIT License</a>
+                </div>
+            </div>
+            <p class="copyright">Designed for macOS. Open Source utility to force Mac built-in microphone.</p>
+        </div>
+    </footer>
+</body>
+</html>
