@@ -13,8 +13,12 @@ DerivedData/
 .idea/
 .vscode/
 
-# AI Metadata
+# AI Metadata (never commit these)
+CLAUDE.md
 GEMINI.md
+HANDOFF.md
 MEMORY.md
+.claude/
 .gemini/
 .superpowers/
+docs/superpowers/
