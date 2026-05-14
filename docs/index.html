@@ -1,179 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto MicLock: Force macOS to use built-in microphone</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="A lightweight macOS utility that prevents macOS from automatically switching the microphone input to Bluetooth headphones. Improve audio quality in calls on Mac.">
-    <meta name="keywords" content="mac microphone keeps switching, stop AirPods microphone switching Mac, force Mac built-in microphone, improve Bluetooth audio quality macOS, macOS audio input switching fix">
-    
-    <!-- Open Graph / Social -->
-    <meta property="og:title" content="Auto MicLock for macOS">
-    <meta property="og:description" content="Fix automatic microphone switching on Mac and improve your Bluetooth audio quality during calls.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="icon.png">
-    
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Preload fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto MicLock: Force macOS to use built-in microphone</title>
+  <meta name="description" content="A lightweight macOS utility that prevents macOS from automatically switching the microphone input to Bluetooth headphones. Improve audio quality in calls on Mac.">
+  <meta name="keywords" content="mac microphone keeps switching, stop AirPods microphone switching Mac, force Mac built-in microphone, improve Bluetooth audio quality macOS, macOS audio input switching fix">
+  <meta property="og:title" content="Auto MicLock for macOS">
+  <meta property="og:description" content="Fix automatic microphone switching on Mac and improve your Bluetooth audio quality during calls.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="icon.png">
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <img src="icon.png" alt="Auto MicLock Icon" class="app-icon">
-                <h1>Lock your internal microphone.<br><span>Unlock HD audio quality.</span></h1>
-                <p class="subtitle">Auto MicLock is a lightweight macOS utility that prevents your Mac from automatically switching the microphone input to Bluetooth headphones, keeping the Mac’s built-in microphone permanently selected.</p>
-                
-                <div class="cta-group">
-                    <a href="https://github.com/BFMIX/AutoMicLock/releases/latest" class="btn btn-primary">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        Download for macOS
-                    </a>
-                    <a href="https://github.com/BFMIX/AutoMicLock" class="btn btn-secondary">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        View on GitHub
-                    </a>
-                </div>
-                <div class="badges">
-                    <span class="badge">Made for macOS 13+</span>
-                    <span class="badge">Open Source</span>
-                    <span class="badge">Universal (Intel & Silicon)</span>
-                </div>
+
+  <!-- Mouse-tracking background glow -->
+  <div class="bg-glow" id="bg-glow" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="icon.png" alt="Auto MicLock" class="nav-icon">
+        <span>Auto MicLock</span>
+      </a>
+      <a href="https://github.com/BFMIX/AutoMicLock/releases/latest" class="nav-cta">
+        &#8595; Download Free
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">macOS Utility &middot; Free &amp; Open Source</p>
+      <img src="icon.png" alt="Auto MicLock icon" class="hero-icon">
+      <h1>Lock your mic.<br><span class="gradient-text">Unlock HD audio.</span></h1>
+      <p class="hero-subtitle">
+        Prevents macOS from switching your microphone to Bluetooth &mdash;
+        keeping your AirPods in high-fidelity mode during every call.
+      </p>
+      <div class="cta-group">
+        <a href="https://github.com/BFMIX/AutoMicLock/releases/latest" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download for macOS
+        </a>
+        <a href="https://github.com/BFMIX/AutoMicLock" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-gold" id="stars-badge" style="display:none">
+          &#9733; <span id="stars-count"></span>
+        </span>
+        <span class="badge">macOS 13+</span>
+        <span class="badge">Intel &amp; Apple Silicon</span>
+        <span class="badge">Open Source</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Menu Bar Preview -->
+    <section class="section menubar-section reveal">
+      <div class="container text-center">
+        <p class="section-eyebrow">Always running, never in the way</p>
+        <h2>Lives quietly in your menu bar.</h2>
+        <p class="section-desc">One click to enable. Runs silently at login. Zero CPU on standby.</p>
+        <div class="menubar-mockup">
+          <div class="menubar-strip">
+            <span class="menubar-left">
+              <span class="menubar-apple">&#xF8FF;</span>
+              <span class="menubar-appname">Finder</span>
+              <span class="menubar-menu">File</span>
+              <span class="menubar-menu">Edit</span>
+              <span class="menubar-menu">View</span>
+            </span>
+            <span class="menubar-right">
+              <span class="menubar-time">9:41</span>
+              <span class="menubar-appicon-wrap">
+                <img src="icon.png" alt="" class="menubar-appicon">
+                <span class="menubar-dot" aria-hidden="true"></span>
+              </span>
+              <span class="menubar-sysicon">&#9776;</span>
+              <span class="menubar-sysicon">&#128267;</span>
+            </span>
+          </div>
+          <div class="menubar-dropdown">
+            <div class="menubar-dd-header">
+              <img src="icon.png" alt="" class="menubar-dd-icon">
+              <div>
+                <div class="menubar-dd-title">Auto MicLock</div>
+                <div class="menubar-dd-status">&#128274; Microphone locked</div>
+              </div>
             </div>
+            <div class="menubar-divider"></div>
+            <div class="menubar-dd-item menubar-dd-active">
+              <span class="menubar-check">&#10003;</span> Lock microphone input
+            </div>
+            <div class="menubar-dd-item">
+              <span class="menubar-check"></span> Launch at Login
+            </div>
+            <div class="menubar-divider"></div>
+            <div class="menubar-dd-item menubar-dd-muted">Quit Auto MicLock</div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section class="section problem-solution">
-            <div class="container text-center">
-                <!-- GIF Placeholder -->
-                <div class="demo-gif-container" style="display: none; margin-bottom: 60px;">
-                    <div class="gif-placeholder" style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); border-radius: 16px; width: 100%; max-width: 800px; aspect-ratio: 16/9; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--text-secondary);">
-                        <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px; opacity: 0.5;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-                        <p>Demo Video Coming Soon<br><small>Watch Auto MicLock instantly intercept macOS switching attempts.</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container split-layout">
-                <div class="card glass">
-                    <div class="card-icon red">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                    </div>
-                    <h2>The Problem</h2>
-                    <p>macOS automatically switches your microphone input to Bluetooth devices when they connect. Because of Bluetooth bandwidth limits, activating the headset's microphone forces the connection into a low-quality "Hands-Free Profile". This instantly ruins your audio quality, making everything sound muffled and distorted like a bad phone call.</p>
-                </div>
-                <div class="card glass">
-                    <div class="card-icon green">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10.08 10.08 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    </div>
-                    <h2>The Solution</h2>
-                    <p>Auto MicLock silently monitors your system's audio. If macOS attempts to switch the input to your Bluetooth headset, the app instantly forces the input back to your Mac's superior built-in microphone. By forcing macOS to ignore the headset's microphone, your Bluetooth headphones remain in high-fidelity mode (AAC/SBC).</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section technical">
-            <div class="container text-center">
-                <h2>How it works (under the hood)</h2>
-                <p class="section-desc" style="max-width: 800px; margin: 0 auto 48px;">Unlike hacky scripts that run infinite loops in the background, Auto MicLock is a <strong>100% native macOS Menu Bar application</strong> written in pure Swift.</p>
-                
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                    <div class="grid-item" style="text-align: left;">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 8px;">CoreAudio Event-Driven</h3>
-                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It uses native <code>AudioObjectAddPropertyListenerBlock</code> to listen for hardware changes. It only wakes up when macOS tries to change the default input, meaning <strong>0% CPU usage</strong> on standby.</p>
-                    </div>
-                    <div class="grid-item" style="text-align: left;">
-                        <h3 style="color: var(--accent-purple); margin-bottom: 8px;">No External Dependencies</h3>
-                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It does not rely on Automator, SwitchAudioSource, or bash loops. It directly sets the <code>kAudioDeviceTransportTypeBuiltIn</code> device via low-level system APIs.</p>
-                    </div>
-                    <div class="grid-item" style="text-align: left;">
-                        <h3 style="color: #4af626; margin-bottom: 8px;">SMAppService</h3>
-                        <p style="font-size: 0.95rem; font-weight: normal; color: var(--text-secondary);">It uses the modern macOS 13+ background service API to launch silently at login without creating messy LaunchAgents or plist files.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section integrations">
-            <div class="container text-center">
-                <h2>Better audio quality everywhere.</h2>
-                <p class="section-desc">Maintain stable, high-fidelity sound during calls and recordings. Stop sounding like you're in a tunnel.</p>
-                
-                <div class="grid use-cases">
-                    <div class="grid-item"><h3>Zoom</h3></div>
-                    <div class="grid-item"><h3>Google Meet</h3></div>
-                    <div class="grid-item"><h3>Microsoft Teams</h3></div>
-                    <div class="grid-item"><h3>Discord</h3></div>
-                    <div class="grid-item"><h3>OBS Studio</h3></div>
-                </div>
-
-                <h3 class="margin-top">Universally Compatible</h3>
-                <p>Works automatically with AirPods, Sony WH-1000XM, Bose QuietComfort, Beats, and any generic Bluetooth headset that triggers the macOS auto-switch behavior.</p>
-            </div>
-        </section>
-
-        <section class="section faq">
-            <div class="container">
-                <h2 class="text-center">Frequently Asked Questions</h2>
-                
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>Why does macOS switch microphones automatically?</h3>
-                        <p>Apple designed macOS to default to the newest connected audio device. While convenient for speakers, it’s highly problematic for Bluetooth headphones because activating their microphone degrades the output audio quality drastically due to Bluetooth profile limitations.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Why doesn't Apple just fix this?</h3>
-                        <p>It's a historical frustration. Apple assumes that if you connect a headset, you want to use its microphone. They haven't provided a user-facing toggle to say "Always prefer my Mac's built-in microphone". Auto MicLock exists to provide that missing toggle.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Does this improve audio quality?</h3>
-                        <p>Yes. By preventing your Mac from using the Bluetooth microphone, your headphones stay in the high-bandwidth A2DP profile (stereo, high bitrate). You will hear your colleagues and music in full HD, while they hear you clearly through your Mac's internal microphone.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Do I need to keep the app open?</h3>
-                        <p>Auto MicLock sits quietly in your macOS Menu Bar. You can enable "Launch at Login" from the menu so it runs automatically in the background every time you start your Mac. You never have to think about it again.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Is it free and open source?</h3>
-                        <p>Yes, 100% free and open source. The project is built with native Swift and CoreAudio APIs, meaning zero telemetry, no data collection, and absolutely no impact on your Mac's performance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section terminal-install">
-            <div class="container text-center">
-                <h2>For Power Users</h2>
-                <p>Install instantly via terminal using our one-line installer.</p>
-                <div class="code-block">
-                    <code>curl -fsSL https://raw.githubusercontent.com/BFMIX/AutoMicLock/main/install.sh | bash</code>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <img src="icon.png" alt="Icon" class="footer-icon">
-                    <span>Auto MicLock</span>
-                </div>
-                <div class="footer-right">
-                    <a href="https://github.com/BFMIX/AutoMicLock">GitHub Repository</a>
-                    <a href="https://github.com/BFMIX/AutoMicLock/blob/main/LICENSE">MIT License</a>
-                </div>
-            </div>
-            <p class="copyright">Designed for macOS. Open Source utility to force Mac built-in microphone.</p>
+    <!-- Before / After -->
+    <section class="section ba-section reveal">
+      <div class="container text-center">
+        <p class="section-eyebrow">The difference is dramatic</p>
+        <h2>Hear the difference.</h2>
+        <p class="section-desc">HFP profile collapses audio quality. AutoMicLock keeps A2DP active at all times.</p>
+        <div class="ba-toggle-group" role="group" aria-label="Audio quality comparison">
+          <button class="ba-btn ba-active" id="btn-without" onclick="setBA('without')">Without AutoMicLock</button>
+          <button class="ba-btn" id="btn-with" onclick="setBA('with')">With AutoMicLock</button>
         </div>
-    </footer>
+        <div class="ba-card" id="ba-without">
+          <div class="ba-waveform waveform-bad" aria-hidden="true">
+            <span style="height:12px"></span><span style="height:20px"></span>
+            <span style="height:14px"></span><span style="height:18px"></span>
+            <span style="height:10px"></span><span style="height:22px"></span>
+            <span style="height:16px"></span><span style="height:12px"></span>
+            <span style="height:20px"></span><span style="height:14px"></span>
+            <span style="height:10px"></span><span style="height:18px"></span>
+            <span style="height:12px"></span><span style="height:20px"></span>
+            <span style="height:8px"></span>
+          </div>
+          <span class="ba-badge ba-badge-bad">HFP Profile &mdash; Low Quality</span>
+          <p class="ba-desc">Bluetooth mic active. Audio downgraded to Hands-Free Profile &mdash; muffled, distorted, like a 2003 phone call.</p>
+        </div>
+        <div class="ba-card ba-hidden" id="ba-with">
+          <div class="ba-waveform waveform-good" aria-hidden="true">
+            <span style="height:20px"></span><span style="height:40px"></span>
+            <span style="height:55px"></span><span style="height:65px"></span>
+            <span style="height:55px"></span><span style="height:70px"></span>
+            <span style="height:60px"></span><span style="height:75px"></span>
+            <span style="height:60px"></span><span style="height:70px"></span>
+            <span style="height:55px"></span><span style="height:65px"></span>
+            <span style="height:45px"></span><span style="height:30px"></span>
+            <span style="height:16px"></span>
+          </div>
+          <span class="ba-badge ba-badge-good">A2DP Profile &mdash; HD Audio</span>
+          <p class="ba-desc">Built-in mic active. Headphones stay in high-bandwidth A2DP mode &mdash; crystal-clear stereo, full frequency range.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="section reveal">
+      <div class="container split-layout">
+        <div class="card glass">
+          <div class="card-icon card-icon-red">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <h3>The Problem</h3>
+          <p>macOS automatically switches your microphone input to Bluetooth devices when they connect. Because of Bluetooth bandwidth limits, activating the headset microphone forces the connection into a low-quality &ldquo;Hands-Free Profile&rdquo;. This instantly ruins audio quality, making everything sound muffled and distorted like a bad phone call.</p>
+        </div>
+        <div class="card glass">
+          <div class="card-icon card-icon-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>The Solution</h3>
+          <p>Auto MicLock silently monitors your system audio. If macOS attempts to switch the input to your Bluetooth headset, the app instantly forces the input back to your Mac&rsquo;s built-in microphone. Your Bluetooth headphones remain in high-fidelity mode (AAC/SBC) at all times.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section reveal">
+      <div class="container text-center">
+        <p class="section-eyebrow">Under the hood</p>
+        <h2>How it works.</h2>
+        <p class="section-desc">Unlike hacky scripts that run infinite loops, Auto MicLock is a <strong>100% native macOS app</strong> written in pure Swift.</p>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h4 class="tech-title tech-blue">CoreAudio Event-Driven</h4>
+            <p>Uses native <code>AudioObjectAddPropertyListenerBlock</code> to listen for hardware changes. Only wakes up when macOS tries to change the default input &mdash; <strong>0% CPU usage</strong> on standby.</p>
+          </div>
+          <div class="tech-card">
+            <h4 class="tech-title tech-purple">No External Dependencies</h4>
+            <p>Does not rely on Automator, SwitchAudioSource, or bash loops. Directly sets the <code>kAudioDeviceTransportTypeBuiltIn</code> device via low-level system APIs.</p>
+          </div>
+          <div class="tech-card">
+            <h4 class="tech-title tech-green">SMAppService</h4>
+            <p>Uses the modern macOS 13+ background service API to launch silently at login without creating messy <code>LaunchAgents</code> or plist files.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compatible Apps -->
+    <section class="section reveal">
+      <div class="container text-center">
+        <h2>Better audio quality everywhere.</h2>
+        <p class="section-desc">Maintain stable, high-fidelity sound during calls and recordings.</p>
+        <div class="apps-grid">
+          <div class="app-badge">Zoom</div>
+          <div class="app-badge">Google Meet</div>
+          <div class="app-badge">Microsoft Teams</div>
+          <div class="app-badge">Discord</div>
+          <div class="app-badge">OBS Studio</div>
+        </div>
+        <p class="compat-note">Works automatically with AirPods, Sony WH-1000XM, Bose QuietComfort, Beats, and any Bluetooth headset that triggers macOS auto-switch.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section reveal">
+      <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              Why does macOS switch microphones automatically?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-a"><p>Apple designed macOS to default to the newest connected audio device. While convenient for speakers, it&rsquo;s highly problematic for Bluetooth headphones because activating their microphone degrades the output audio quality drastically due to Bluetooth profile limitations.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              Why doesn&rsquo;t Apple just fix this?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-a"><p>Apple assumes that if you connect a headset, you want to use its microphone. They haven&rsquo;t provided a user-facing toggle to say &ldquo;always prefer my Mac&rsquo;s built-in microphone&rdquo;. Auto MicLock exists to provide that missing toggle.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              Does this actually improve audio quality?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-a"><p>Yes. By preventing your Mac from using the Bluetooth microphone, your headphones stay in the high-bandwidth A2DP profile (stereo, high bitrate). You will hear colleagues and music in full HD, while they hear you clearly through your Mac&rsquo;s internal microphone.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              Do I need to keep the app open?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-a"><p>Auto MicLock sits quietly in your macOS Menu Bar. Enable &ldquo;Launch at Login&rdquo; from the menu so it runs automatically in the background every time you start your Mac. You never have to think about it again.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              Is it free and open source?
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="faq-a"><p>Yes, 100% free and open source. Built with native Swift and CoreAudio APIs &mdash; zero telemetry, no data collection, and no impact on your Mac&rsquo;s performance.</p></div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Terminal Install -->
+    <section class="section install-section reveal">
+      <div class="container text-center">
+        <p class="section-eyebrow">Power Users</p>
+        <h2>Install from terminal.</h2>
+        <p class="section-desc">One command. Done.</p>
+        <div class="code-wrapper">
+          <div class="code-block">
+            <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/BFMIX/AutoMicLock/main/install.sh | bash</code>
+          </div>
+          <button class="copy-btn" id="copy-btn" onclick="copyInstall()" aria-label="Copy install command">
+            <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><polyline points="20 6 9 17 4 12"/></svg>
+            <span id="copy-label">Copy</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="icon.png" alt="Auto MicLock" class="footer-icon">
+        <span>Auto MicLock</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/BFMIX/AutoMicLock">GitHub</a>
+        <a href="https://github.com/BFMIX/AutoMicLock/blob/main/LICENSE">MIT License</a>
+      </div>
+    </div>
+    <div class="container">
+      <p class="copyright">Made for macOS. Open source utility to force built-in microphone.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mouse-tracking background — lerp for smooth follow
+    var bgGlow = document.getElementById('bg-glow');
+    var mx = 50, my = 30, cx = 50, cy = 30;
+    document.addEventListener('mousemove', function(e) {
+      mx = (e.clientX / window.innerWidth) * 100;
+      my = (e.clientY / window.innerHeight) * 100;
+    });
+    function animateGlow() {
+      cx += (mx - cx) * 0.06;
+      cy += (my - cy) * 0.06;
+      bgGlow.style.background =
+        'radial-gradient(ellipse 700px 500px at ' + cx + '% ' + cy + '%, rgba(10,132,255,0.10) 0%, transparent 70%)';
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // Navbar hide on scroll down, show on scroll up
+    var lastScroll = 0;
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      var current = window.scrollY;
+      if (current > lastScroll && current > 50) {
+        navbar.classList.add('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
+      lastScroll = current;
+    }, { passive: true });
+
+    // Live GitHub stars
+    fetch('https://api.github.com/repos/BFMIX/AutoMicLock')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (typeof d.stargazers_count === 'number') {
+          document.getElementById('stars-count').textContent = d.stargazers_count + ' stars';
+          document.getElementById('stars-badge').style.display = 'inline-flex';
+        }
+      })
+      .catch(function() {});
+
+    // Before/After toggle
+    function setBA(state) {
+      var withoutCard = document.getElementById('ba-without');
+      var withCard    = document.getElementById('ba-with');
+      var btnWithout  = document.getElementById('btn-without');
+      var btnWith     = document.getElementById('btn-with');
+      if (state === 'without') {
+        withoutCard.classList.remove('ba-hidden');
+        withCard.classList.add('ba-hidden');
+        btnWithout.classList.add('ba-active');
+        btnWith.classList.remove('ba-active');
+      } else {
+        withoutCard.classList.add('ba-hidden');
+        withCard.classList.remove('ba-hidden');
+        btnWithout.classList.remove('ba-active');
+        btnWith.classList.add('ba-active');
+      }
+    }
+
+    // Copy install command
+    function copyInstall() {
+      var cmd = document.getElementById('install-cmd').textContent;
+      navigator.clipboard.writeText(cmd).then(function() {
+        var btn      = document.getElementById('copy-btn');
+        var label    = document.getElementById('copy-label');
+        var iconCopy  = btn.querySelector('.icon-copy');
+        var iconCheck = btn.querySelector('.icon-check');
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        iconCopy.style.display  = 'none';
+        iconCheck.style.display = 'block';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          label.textContent = 'Copy';
+          iconCopy.style.display  = '';
+          iconCheck.style.display = 'none';
+        }, 2000);
+      }).catch(function() {});
+    }
+
+    // Scroll reveal
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  </script>
+
 </body>
 </html>
