@@ -7,9 +7,18 @@
         <language>en</language>
         <item>
             <title>Version 1.1</title>
-            <sparkle:releaseNotesLink>
-                https://github.com/BFMIX/AutoMicLock/blob/main/CHANGELOG.md
-            </sparkle:releaseNotesLink>
+            <description>
+                <![CDATA[
+                <h2>Version 1.1</h2>
+                <ul>
+                    <li><b>Dynamic Menu Bar Icon:</b> The icon now changes shape and color based on the lock status.</li>
+                    <li><b>Smart Device Switching:</b> Added a delay to prevent rapid audio switching loops.</li>
+                    <li><b>Dynamic Appearance:</b> App icon now adapts to Light and Dark mode.</li>
+                    <li><b>Accessibility:</b> Full VoiceOver support added.</li>
+                    <li><b>Improved Stability:</b> Various bug fixes for a smoother experience.</li>
+                </ul>
+                ]]>
+            </description>
             <pubDate>Sat, 16 May 2026 12:00:00 +0000</pubDate>
             <enclosure url="https://github.com/BFMIX/AutoMicLock/releases/download/v1.1/AutoMicLock.dmg"
                        sparkle:version="2"
