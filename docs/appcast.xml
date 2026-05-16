@@ -6,24 +6,25 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
-            <title>Version 1.2 (Test Signature)</title>
+            <title>Version 1.2</title>
             <description>
                 <![CDATA[
                 <h2>Version 1.2</h2>
-                <p>Testing signed update process with real EdDSA keys.</p>
+                <p>Official signed release.</p>
                 <ul>
-                    <li>Fixed update validation error.</li>
-                    <li>Integrated real security keys.</li>
+                    <li>Integrated real security keys for secure one-click updates.</li>
+                    <li>Fixed update signature validation error.</li>
+                    <li>General performance improvements.</li>
                 </ul>
                 ]]>
             </description>
-            <pubDate>Sat, 16 May 2026 13:00:00 +0000</pubDate>
+            <pubDate>Sat, 16 May 2026 13:30:00 +0000</pubDate>
             <enclosure url="https://github.com/BFMIX/AutoMicLock/releases/download/v1.1/AutoMicLock.dmg"
                        sparkle:version="3"
                        sparkle:shortVersionString="1.2"
-                       length="4037798"
+                       length="4037821"
                        type="application/octet-stream"
-                       sparkle:edSignature="sFtocxBdoxd9jTCGjhw/UFhoM64NwFO54alksjXwwHhOEA01uxLvVpJOEgUWuFD8NeLA/IOgV3ygDU1K8PqICA==" />
+                       sparkle:edSignature="Dtx8XqZQ3tCXgTSEzEZb40X1BirfqWpT61rByHe56JeOVnLLpu8H4Wamd4yc0EYK0ViObBXa9fTl4Dl2YZZmAw==" />
         </item>
     </channel>
 </rss>
