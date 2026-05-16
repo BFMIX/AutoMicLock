@@ -35,6 +35,9 @@ struct ContentView: View {
                             .font(.system(size: 22, weight: .bold))
                             .animation(.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0), value: audioController.isMicLocked)
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("Microphone Lock Status")
+                    .accessibilityValue(audioController.isMicLocked ? "Locked" : "Unlocked")
                     .padding(.top, 16)
                     .onAppear {
                         if audioController.isMicLocked { isPulsing = true }
@@ -87,6 +90,8 @@ struct ContentView: View {
                         .toggleStyle(.switch)
                         .labelsHidden()
                         .tint(.purple)
+                        .accessibilityLabel("Microphone Lock")
+                        .accessibilityValue(audioController.isMicLocked ? "Enabled" : "Disabled")
                 }
                 
                 Divider()
@@ -120,6 +125,8 @@ struct ContentView: View {
                     .toggleStyle(.switch)
                     .labelsHidden()
                     .tint(.blue)
+                    .accessibilityLabel("Start at Login")
+                    .accessibilityValue(launchAtLogin ? "Enabled" : "Disabled")
                 }
             }
             .padding(24)
@@ -138,6 +145,7 @@ struct ContentView: View {
                 .buttonStyle(.plain)
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(.secondary)
+                .accessibilityLabel("Check for Updates")
                 
                 Spacer()
                 
@@ -148,6 +156,7 @@ struct ContentView: View {
                 .font(.system(size: 12, weight: .bold))
                 .foregroundColor(.red.opacity(0.8))
                 .keyboardShortcut("q")
+                .accessibilityLabel("Quit Application")
             }
             .padding(.horizontal, 24)
             .padding(.vertical, 14)
