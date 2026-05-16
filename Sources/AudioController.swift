@@ -12,6 +12,7 @@ class AudioController: ObservableObject {
     }
     
     private var propertyListenerBlock: AudioObjectPropertyListenerBlock?
+    private var debounceTimer: Timer?
     
     init() {
         setupAudioListener()
@@ -22,6 +23,7 @@ class AudioController: ObservableObject {
     
     deinit {
         removeAudioListener()
+        debounceTimer?.invalidate()
     }
     
     private func setupAudioListener() {
@@ -35,7 +37,11 @@ class AudioController: ObservableObject {
             guard let self = self else { return }
             if self.isMicLocked {
                 DispatchQueue.main.async {
-                    self.lockInternalMic()
+                    // Debounce: invalidate previous timer and start a new one for 0.2s
+                    self.debounceTimer?.invalidate()
+                    self.debounceTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { _ in
+                        self.lockInternalMic()
+                    }
                 }
             }
         }
