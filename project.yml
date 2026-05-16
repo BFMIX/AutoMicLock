@@ -19,7 +19,7 @@ targets:
       properties:
         LSUIElement: true
         SUFeedURL: "https://bfmix.github.io/AutoMicLock/appcast.xml"
-        SUPublicEDKey: "vmA0mz+PmaFNbpT3Xs1VpjAmcs6aEKPkNWZPSomU6+o="
+        SUPublicEDKey: "TdRdc9PdaWT7FLv5W3wYe52mHoEBpmxyNUQKEbIV1lo="
     entitlements:
       path: AutoMicLock.entitlements
       properties:
