@@ -43,6 +43,7 @@ xcodebuild -exportArchive \
     -exportOptionsPlist "$EXPORT_PLIST" \
     -quiet
 
+cp "INSTALL_TUTORIAL.txt" "$EXPORT_PATH/"
 echo "💿 Creating custom DMG with create-dmg..."
 # Remove old dmg if exists
 rm -f "$DMG_PATH"

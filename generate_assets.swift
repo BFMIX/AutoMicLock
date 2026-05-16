@@ -132,6 +132,16 @@ func createDMGBackground() -> NSBitmapImageRep {
         arrowImage.draw(in: arrowTargetRect)
     }
     
+    // Hint text
+    let hint = "If blocked by Gatekeeper, see the included READ ME.txt for instructions"
+    let hintFont = NSFont.systemFont(ofSize: 14, weight: .regular)
+    let hintAttrs: [NSAttributedString.Key: Any] = [
+        .font: hintFont,
+        .foregroundColor: NSColor.white.withAlphaComponent(0.8)
+    ]
+    let hintSize = hint.size(withAttributes: hintAttrs)
+    hint.draw(at: NSPoint(x: centerX - (hintSize.width / 2), y: topY - 350), withAttributes: hintAttrs)
+    
     NSGraphicsContext.restoreGraphicsState()
     return rep
 }
