@@ -57,7 +57,7 @@ create-dmg \
   --icon "$APP_NAME.app" 150 200 \
   --hide-extension "$APP_NAME.app" \
   --app-drop-link 350 200 \
-  --icon "INSTALL_TUTORIAL.html" 550 200 \
+  --icon "guide.html" 550 200 \
   "$DMG_PATH" \
   "$EXPORT_PATH/"
 
