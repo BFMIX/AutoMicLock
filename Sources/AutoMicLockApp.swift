@@ -15,7 +15,7 @@ struct AutoMicLockApp: App {
         MenuBarExtra {
             ContentView(audioController: audioController, updater: updaterController.updater)
         } label: {
-            Image(systemName: "mic.fill")
+            Image(systemName: audioController.isMicLocked ? "mic.fill" : "mic.slash.fill")
                 // On macOS, Menu Bar icons are templates by default. We use palette/multicolor 
                 // and foregroundStyle to attempt forcing color, but system behavior may override.
                 .symbolRenderingMode(.palette)
