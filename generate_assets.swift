@@ -133,14 +133,15 @@ func createDMGBackground() -> NSBitmapImageRep {
     }
     
     // Hint text
-    let hint = "If blocked by Gatekeeper, see the included READ ME.txt for instructions"
+    let hint = "If blocked by Gatekeeper, see the included INSTALL_TUTORIAL.html"
     let hintFont = NSFont.systemFont(ofSize: 14, weight: .regular)
     let hintAttrs: [NSAttributedString.Key: Any] = [
         .font: hintFont,
         .foregroundColor: NSColor.white.withAlphaComponent(0.8)
     ]
     let hintSize = hint.size(withAttributes: hintAttrs)
-    hint.draw(at: NSPoint(x: centerX - (hintSize.width / 2), y: topY - 350), withAttributes: hintAttrs)
+    // Moved up to topY - 320 to prevent truncation by bottom window border
+    hint.draw(at: NSPoint(x: centerX - (hintSize.width / 2), y: topY - 320), withAttributes: hintAttrs)
     
     NSGraphicsContext.restoreGraphicsState()
     return rep

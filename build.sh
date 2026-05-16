@@ -43,7 +43,7 @@ xcodebuild -exportArchive \
     -exportOptionsPlist "$EXPORT_PLIST" \
     -quiet
 
-cp "INSTALL_TUTORIAL.txt" "$EXPORT_PATH/"
+cp "INSTALL_TUTORIAL.html" "$EXPORT_PATH/"
 echo "💿 Creating custom DMG with create-dmg..."
 # Remove old dmg if exists
 rm -f "$DMG_PATH"
@@ -57,6 +57,7 @@ create-dmg \
   --icon "$APP_NAME.app" 150 240 \
   --hide-extension "$APP_NAME.app" \
   --app-drop-link 450 240 \
+  --icon "INSTALL_TUTORIAL.html" 300 290 \
   "$DMG_PATH" \
   "$EXPORT_PATH/"
 
