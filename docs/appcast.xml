@@ -5,5 +5,17 @@
         <link>https://bfmix.github.io/AutoMicLock/appcast.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
+        <item>
+            <title>Version 1.1</title>
+            <sparkle:releaseNotesLink>
+                https://github.com/BFMIX/AutoMicLock/blob/main/CHANGELOG.md
+            </sparkle:releaseNotesLink>
+            <pubDate>Sat, 16 May 2026 12:00:00 +0000</pubDate>
+            <enclosure url="https://github.com/BFMIX/AutoMicLock/releases/download/v1.1/AutoMicLock.dmg"
+                       sparkle:version="2"
+                       sparkle:shortVersionString="1.1"
+                       length="4037798"
+                       type="application/octet-stream" />
+        </item>
     </channel>
 </rss>
