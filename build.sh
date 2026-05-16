@@ -49,7 +49,7 @@ echo "💿 Creating custom DMG with create-dmg..."
 rm -f "$DMG_PATH"
 
 create-dmg \
-  --volname "$APP_NAME" \
+  --volname "$APP_NAME Install" \
   --background "build/dmg_background.png" \
   --window-pos 200 120 \
   --window-size 700 400 \
