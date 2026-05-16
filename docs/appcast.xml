@@ -18,13 +18,13 @@
                 </ul>
                 ]]>
             </description>
-            <pubDate>Sat, 16 May 2026 13:30:00 +0000</pubDate>
+            <pubDate>Sat, 16 May 2026 14:00:00 +0000</pubDate>
             <enclosure url="https://github.com/BFMIX/AutoMicLock/releases/download/v1.1/AutoMicLock.dmg"
                        sparkle:version="3"
                        sparkle:shortVersionString="1.2"
-                       length="4037821"
+                       length="4004876"
                        type="application/octet-stream"
-                       sparkle:edSignature="Dtx8XqZQ3tCXgTSEzEZb40X1BirfqWpT61rByHe56JeOVnLLpu8H4Wamd4yc0EYK0ViObBXa9fTl4Dl2YZZmAw==" />
+                       sparkle:edSignature="DHetscbUu865GdZYeWWPdLLmHLGcSJSWL3ez/SwqDHSGHszdihWM5330opZZvjSU4tWMPknn/JEw2YMCB01WDw==" />
         </item>
     </channel>
 </rss>
