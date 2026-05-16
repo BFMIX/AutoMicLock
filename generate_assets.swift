@@ -129,7 +129,7 @@ func createDMGBackground() -> NSBitmapImageRep {
     }
     
     // Hint text at the bottom
-    let hint = "If blocked by Gatekeeper, see the included INSTALL_TUTORIAL.html"
+    let hint = "If blocked by Gatekeeper, see the included guide.html"
     let hintFont = NSFont.systemFont(ofSize: 14, weight: .regular)
     let hintAttrs: [NSAttributedString.Key: Any] = [
         .font: hintFont,
