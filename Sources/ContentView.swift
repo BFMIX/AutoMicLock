@@ -149,6 +149,14 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                // Version display
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    Text("v\(version)")
+                        .font(.system(size: 10, weight: .regular, design: .monospaced))
+                        .foregroundColor(.secondary.opacity(0.6))
+                        .padding(.trailing, 8)
+                }
+                
                 Button("Quit") {
                     NSApplication.shared.terminate(nil)
                 }
