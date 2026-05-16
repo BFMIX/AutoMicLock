@@ -161,6 +161,10 @@ struct ContentView: View {
                     .accessibilityLabel("Quit Application")
                 }
                 
+                Divider()
+                    .padding(.horizontal, 40)
+                    .opacity(0.3)
+                
                 // Centered Version display
                 if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                     Text("AutoMicLock - Version \(version)")
