@@ -23,9 +23,12 @@ let iconsetPath = "Sources/Assets.xcassets/AppIcon.appiconset"
 try? FileManager.default.removeItem(atPath: iconsetPath) // Clean old icons
 try? FileManager.default.createDirectory(atPath: iconsetPath, withIntermediateDirectories: true)
 
-let sourceIconPath = "AutoMicLock-icon.png"
-guard let sourceImage = NSImage(contentsOfFile: sourceIconPath) else {
-    print("Error: Could not find AutoMicLock-icon.png at root.")
+let sourceIconLightPath = "AutoMicLock-icon-light.png"
+let sourceIconDarkPath = "AutoMicLock-icon-dark.png"
+
+guard let sourceImageLight = NSImage(contentsOfFile: sourceIconLightPath),
+      let sourceImageDark = NSImage(contentsOfFile: sourceIconDarkPath) else {
+    print("Error: Could not find AutoMicLock-icon-light.png or AutoMicLock-icon-dark.png at root.")
     exit(1)
 }
 
@@ -37,19 +40,39 @@ var contents = """
 """
 
 for (index, (baseSize, scale)) in sizes.enumerated() {
-    let filename = "icon_\(baseSize)x\(baseSize)\(scale == 2 ? "@2x" : "").png"
-    let fullPath = "\(iconsetPath)/\(filename)"
-    if let rep = resizeImage(image: sourceImage, width: CGFloat(baseSize * scale), height: CGFloat(baseSize * scale)) {
-        savePNG(rep: rep, path: fullPath)
+    let filenameLight = "icon_\(baseSize)x\(baseSize)\(scale == 2 ? "@2x" : "").png"
+    let fullPathLight = "\(iconsetPath)/\(filenameLight)"
+    if let rep = resizeImage(image: sourceImageLight, width: CGFloat(baseSize * scale), height: CGFloat(baseSize * scale)) {
+        savePNG(rep: rep, path: fullPathLight)
     }
+    
+    let filenameDark = "icon_dark_\(baseSize)x\(baseSize)\(scale == 2 ? "@2x" : "").png"
+    let fullPathDark = "\(iconsetPath)/\(filenameDark)"
+    if let rep = resizeImage(image: sourceImageDark, width: CGFloat(baseSize * scale), height: CGFloat(baseSize * scale)) {
+        savePNG(rep: rep, path: fullPathDark)
+    }
+    
+    let isLast = index == sizes.count - 1
     
     contents += """
     {
-      "filename" : "\(filename)",
+      "filename" : "\(filenameLight)",
       "idiom" : "mac",
       "scale" : "\(scale)x",
       "size" : "\(baseSize)x\(baseSize)"
-    }\(index == sizes.count - 1 ? "" : ",")
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "\(filenameDark)",
+      "idiom" : "mac",
+      "scale" : "\(scale)x",
+      "size" : "\(baseSize)x\(baseSize)"
+    }\(isLast ? "" : ",")
 
 """
 }
