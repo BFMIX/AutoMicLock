@@ -52,12 +52,12 @@ create-dmg \
   --volname "$APP_NAME" \
   --background "build/dmg_background.png" \
   --window-pos 200 120 \
-  --window-size 600 400 \
+  --window-size 700 400 \
   --icon-size 100 \
-  --icon "$APP_NAME.app" 150 240 \
+  --icon "$APP_NAME.app" 150 200 \
   --hide-extension "$APP_NAME.app" \
-  --app-drop-link 450 240 \
-  --icon "INSTALL_TUTORIAL.html" 300 290 \
+  --app-drop-link 350 200 \
+  --icon "INSTALL_TUTORIAL.html" 550 200 \
   "$DMG_PATH" \
   "$EXPORT_PATH/"
 
