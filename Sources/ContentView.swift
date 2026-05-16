@@ -133,42 +133,43 @@ struct ContentView: View {
             .background(Color(NSColor.windowBackgroundColor))
             
             // Footer Toolbar
-            VStack(spacing: 8) {
-                HStack {
+            VStack(spacing: 12) {
+                HStack(spacing: 16) {
                     Button(action: {
                         updater.checkForUpdates()
                     }) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "arrow.triangle.2.circlepath")
-                            Text("Check for Updates")
-                        }
+                        Label("Update", systemImage: "arrow.triangle.2.circlepath")
+                            .font(.system(size: 11, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)
                     }
-                    .buttonStyle(.plain)
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(.secondary)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
                     .accessibilityLabel("Check for Updates")
                     
-                    Spacer()
-                    
-                    Button("Quit") {
+                    Button(action: {
                         NSApplication.shared.terminate(nil)
+                    }) {
+                        Label("Quit", systemImage: "power")
+                            .font(.system(size: 11, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)
                     }
-                    .buttonStyle(.plain)
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundColor(.red.opacity(0.8))
+                    .buttonStyle(.bordered)
+                    .tint(.red)
                     .keyboardShortcut("q")
                     .accessibilityLabel("Quit Application")
                 }
                 
                 // Centered Version display
                 if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                    Text("AutoMicLock - v\(version)")
-                        .font(.system(size: 10, weight: .regular))
-                        .foregroundColor(.secondary.opacity(0.5))
+                    Text("AutoMicLock - Version \(version)")
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(.secondary.opacity(0.6))
                 }
             }
             .padding(.horizontal, 24)
-            .padding(.vertical, 12)
+            .padding(.vertical, 16)
             .background(Color(NSColor.controlBackgroundColor))
         }
         .frame(width: 320)
